@@ -1,9 +1,12 @@
 // Widok z formularzem do dodawania pacjenta
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { addPatient } from "../utils";
 
-function AddPatient(props) {
+function AddPatient() {
 
+    const navigate = useNavigate();
     const [data, setData] = useState({'pesel': '', 'firstName': '', 'secondName': '','adress': '', 'birthDate': '', 'information': ''})
 
     function setPesel(pesel) {
@@ -37,8 +40,9 @@ function AddPatient(props) {
         }))
     }
 
-    const handleSubmitClick =  () => {
-        addPatient(data);
+    const handleSubmitClick =  (e) => {
+        e.preventDefault()
+        addPatient(data, navigate);
      };
 
     return (
@@ -47,7 +51,6 @@ function AddPatient(props) {
                 Laboratorium medyczne 
             </header>
             <div id='app-body'>
-                <button id="return_button" onClick={e => props.setPage('main')}>Wróć do poprzedniej strony</button>
                 <form>
                     <input
                         type="text"

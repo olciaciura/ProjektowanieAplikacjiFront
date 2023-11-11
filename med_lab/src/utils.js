@@ -1,4 +1,4 @@
-export async function handleLogin (pesel, setPatientData, navigate) {  
+export async function handleLogin (pesel, navigate) {  
     console.log('test')
     try {
       const response = await fetch(`http://localhost:5000/patient/${pesel}`, {
@@ -9,7 +9,6 @@ export async function handleLogin (pesel, setPatientData, navigate) {
         console.log('wchodze')
         const data = await response.json();
         console.log(response)
-        setPatientData(data);
         navigate("/patient");
     } else {
         console.error('Wystąpił błąd przy pobieraniu danych.');
@@ -22,27 +21,26 @@ export async function handleLogin (pesel, setPatientData, navigate) {
     };
 };
 
-export async function addPatient (data) {  
+export async function addPatient (data, navigate) {  
   console.log('test')
   try {
     const response = await fetch(`http://localhost:5000/patient`, {
       method: 'POST',
-      body: JSON.parse(data)
+      body: data
     });
 
     if (response.ok) {
       console.log('wchodze')
       const data = await response.json();
       console.log(response)
-      setPatientData(data);
-      setPage('patient');
-  } else {
+      navigate("/doctor");
+    } else {
       console.error('Wystąpił błąd przy pobieraniu danych.');
-      setPage('patient');
+      navigate("/doctor");
       console.log('err')
   }
   } catch (error) {
     console.error('Wystąpił błąd:', error);
-    setPage('patient');
+    navigate("/doctor");
   };
 };
