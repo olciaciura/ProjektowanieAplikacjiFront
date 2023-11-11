@@ -1,7 +1,7 @@
-export async function handleLogin (pesel, setPatientData, setPage) {  
+export async function handleLogin (pesel, setPatientData, navigate) {  
     console.log('test')
     try {
-      const response = await fetch(`http://192.168.0.24:5000/patient/${pesel}`, {
+      const response = await fetch(`http://localhost:5000/patient/${pesel}`, {
         method: 'GET'
       });
 
@@ -10,15 +10,15 @@ export async function handleLogin (pesel, setPatientData, setPage) {
         const data = await response.json();
         console.log(response)
         setPatientData(data);
-        setPage('patient');
+        navigate("/patient");
     } else {
         console.error('Wystąpił błąd przy pobieraniu danych.');
-        setPage('patient');
+        navigate('patient');
         console.log('err')
     }
     } catch (error) {
       console.error('Wystąpił błąd:', error);
-      setPage('patient');
+      navigate('patient');
     };
 };
 

@@ -8,23 +8,24 @@ import AllTests from './components/AllTests';
 import Doctor from './components/Doctor';
 import ViewTestDoctor from './components/ViewTestDoctor';
 import ViewTestPatient from './components/ViewTestPatient';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [page, setPage] = useState('add_patient');
   const [patientData, setPatientData] = useState('');
   const [pesel, setPesel] = useState('');
   return (
-    <div>
-      {page === 'main' && <Main page={page} setPage={setPage} setPatientData={setPatientData}/>}
-      {page === 'patient' && <Patient patientData={patientData}/>}
-      {page === 'add_patient' && <AddPatient pesel={pesel} setPage={setPage}/>}
-      {page === 'add_test' && <AddTest/>}
-      {page === 'all_tests' && <AllTests/>}
-      {page === 'doctor' && <Doctor/>}
-      {page === 'view_test_doctor' && <ViewTestDoctor/>}
-      {page === 'view_test_patient' && <ViewTestPatient/>}
-    </div>
-    
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Main setPatientData={setPatientData}/>}/>
+      <Route path='/patient' element ={<Patient patientData={patientData}/>}/>
+      <Route path='/add_patient' element ={<AddPatient/>}/>
+      <Route path='/all_tests' element ={<AllTests/>}/>
+      <Route path='/doctor' element ={<Doctor/>}/>
+      <Route path='/view_test_doctor' element ={<ViewTestDoctor/>}/>
+      <Route path='/view_test_patient' element ={<ViewTestPatient/>}/>
+    </Routes>
+  </BrowserRouter>
   )
 }
 
