@@ -10,7 +10,7 @@ export async function handleLogin (pesel, setPatientData, navigate) {
         const data = await response.json();
         console.log(response)
         setPatientData(data);
-        setPage("/patient");
+        navigate("/patient");
     } else {
         console.error('Wystąpił błąd przy pobieraniu danych.');
         setPage('patient');
