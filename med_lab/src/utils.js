@@ -13,11 +13,11 @@ export async function handleLogin (pesel, setPatientData, navigate) {
         navigate("/patient");
     } else {
         console.error('Wystąpił błąd przy pobieraniu danych.');
-        setPage('patient');
+        navigate('patient');
         console.log('err')
     }
     } catch (error) {
       console.error('Wystąpił błąd:', error);
-      setPage('patient');
+      navigate('patient');
     };
 };
