@@ -10,14 +10,14 @@ import ViewTestDoctor from './components/ViewTestDoctor';
 import ViewTestPatient from './components/ViewTestPatient';
 
 function App() {
-  const [page, setPage] = useState('main');
+  const [page, setPage] = useState('add_patient');
   const [patientData, setPatientData] = useState('');
   const [pesel, setPesel] = useState('');
   return (
     <div>
       {page === 'main' && <Main page={page} setPage={setPage} setPatientData={setPatientData}/>}
       {page === 'patient' && <Patient patientData={patientData}/>}
-      {page === 'add_patient' && <AddPatient pesel={pesel}/>}
+      {page === 'add_patient' && <AddPatient pesel={pesel} setPage={setPage}/>}
       {page === 'add_test' && <AddTest/>}
       {page === 'all_tests' && <AllTests/>}
       {page === 'doctor' && <Doctor/>}
