@@ -8,7 +8,8 @@ function Main(props) {
     
     const [pesel, setPesel] = useState('');
     
-    const handleLoginClick =  () => {
+    const handleLoginClick =  (e) => {
+        e.preventDefault();
          handleLogin(pesel, props.setPatientData, props.setPage);
       };
 
