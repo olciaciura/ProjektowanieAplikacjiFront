@@ -1,7 +1,7 @@
 export async function handleLogin (pesel, setPatientData, setPage) {  
     console.log('test')
     try {
-      const response = await fetch(`http://192.168.0.24:5000/patient/${pesel}`, {
+      const response = await fetch(`http://localhost:5000/patient/${pesel}`, {
         method: 'GET'
       });
 
