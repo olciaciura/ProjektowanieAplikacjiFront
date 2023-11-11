@@ -1,3 +1,5 @@
+// strona z formularzem do dodawania badania
+
 function AddTest() {
       return (
         <div className="App-page">

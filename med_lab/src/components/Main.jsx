@@ -1,3 +1,5 @@
+// glowna strona - wybor logowanie jako pacjent i jako doktor
+
 import { React, useState } from "react";
 import './css/main.css';
 import { handleLogin, handleLoginDoc } from "../utils";

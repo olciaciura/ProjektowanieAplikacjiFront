@@ -1,3 +1,5 @@
+// strona po zalogowaniu sie jako doktor - widok wszystkich pacjetow 
+
 function Doctor() {
       return (
         <div className="App-page">

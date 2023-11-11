@@ -1,3 +1,5 @@
+// strona po zalogowaniu sie jako pacjent - widok wszystkich jego testow w kafelkach
+
 import React from "react";
 
 function Patient(props){

@@ -1,3 +1,5 @@
+// widok wynikow badania jako doctor - rozroznienie jest dla latwiejzej obslugi cofania sie do poprzedniej strony
+
 function ViewTestDoctor() {
       return (
         <div className="App-page">

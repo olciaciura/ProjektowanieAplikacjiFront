@@ -1,3 +1,5 @@
+// widok wynikow badania jako pacjent - rozroznienie jest dla latwiejzej obslugi cofania sie do poprzedniej strony
+
 function ViewTestPatient() {
       return (
         <div className="App-page">

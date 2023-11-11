@@ -1,3 +1,5 @@
+// Widok z formularzem do dodawania pacjenta
+
 function AddPatient() {
       return (
         <div className="App-page">

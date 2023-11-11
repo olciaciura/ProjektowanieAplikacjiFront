@@ -1,3 +1,5 @@
+// strona wyswietlajaca wszystkie testy w liscie dla danego pacjenta z konta doktora
+
 function AllTests() {
       return (
         <div className="App-page">
