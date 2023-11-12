@@ -7,7 +7,7 @@ function PatientTestList(props) {
     <div >
       <h3>Lista Badań</h3>
       <ul>
-        {props.TestList.map((test) => {
+        {props.testList.map((test) => {
           var keys = Object.keys(test.tests);
           return <li key={test._id}><TestTile firstTestName={keys[0]} date={test.date} /></li>;
         })}

@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   const [page, setPage] = useState('main');
   const [patientData, setPatientData] = useState('');
+  const [test, setTest] = useState('')
   return (
     <BrowserRouter>
     <Routes>
@@ -22,7 +23,7 @@ function App() {
       <Route path='/all_tests' element ={<AllTests/>}/>
       <Route path='/doctor' element ={<Doctor/>}/>
       <Route path='/view_test_doctor' element ={<ViewTestDoctor/>}/>
-      <Route path='/view_test_patient' element ={<ViewTestPatient/>}/>
+      <Route path='/view_test_patient' element ={<ViewTestPatient test={test}/>}/>
     </Routes>
   </BrowserRouter>
   )

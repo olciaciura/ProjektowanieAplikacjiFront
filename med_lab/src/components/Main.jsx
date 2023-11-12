@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 function Main(props) {
     const navigate = useNavigate();
     const [pesel, setPesel] = useState('');
-    
     const handleLoginClick =  (e) => {
         e.preventDefault();
          handleLogin(pesel, props.setPatientData, navigate);

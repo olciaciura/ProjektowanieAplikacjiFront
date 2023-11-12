@@ -6,9 +6,10 @@ import { useState,useEffect } from "react";
 import { getPatientTests } from "../utils";
 
 function Patient(props){
-  const [patientTests, setPatientTests] = useState('');
+  const [patientTests, setPatientTests] = useState([]);
   console.log(props.patientData.pesel)
   useEffect(() =>{getPatientTests(props.patientData.pesel,setPatientTests)},[])
+  //getPatientTests(props.patientData.pesel,setPatientTests)
     const DUMMY_DATA = [
       {
         _id: '1',
@@ -44,7 +45,7 @@ function Patient(props){
             Laboratorium medyczne 
         </header>
         <h2>Strona pacjenta</h2>
-        <PatientTestList TestList={patientTests}/>
+        <PatientTestList testList={patientTests}/>
         <div>Odpowiedź z zapytania: {props.patientData.firstName}</div>
         <footer>
                 © 2023 Aleksandra Ciura, Jakub Kulejewski. Wszelkie prawa zastrzeżone.
