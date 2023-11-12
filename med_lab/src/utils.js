@@ -22,16 +22,24 @@ export async function handleLogin (pesel, navigate) {
 };
 
 export async function addPatient (data, navigate) {  
-  console.log('test')
+  console.log(typeof(data))
   try {
     const response = await fetch(`http://localhost:5000/patient`, {
       method: 'POST',
-      body: data
+      headers: {
+        "Content-type": "application/json"},
+      body: JSON.stringify({
+        'pesel': data['pesel'],
+        'firstName': data['firstName'],
+        'secondName': data['secondName'],
+        'adress': data['adress'],
+        'birthDate': data['birthDate'],
+        'information': data['information']
+      })
     });
-
     if (response.ok) {
       console.log('wchodze')
-      const data = await response.json();
+      // const data = await response.json();
       console.log(response)
       navigate("/doctor");
     } else {
