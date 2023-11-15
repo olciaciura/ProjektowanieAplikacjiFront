@@ -45,7 +45,7 @@ function Patient(props){
             Laboratorium medyczne 
         </header>
         <h2>Strona pacjenta</h2>
-        <PatientTestList testList={patientTests}/>
+        <PatientTestList testList={patientTests} setTest={props.setTest}/>
         <div>Odpowiedź z zapytania: {props.patientData.firstName}</div>
         <footer>
                 © 2023 Aleksandra Ciura, Jakub Kulejewski. Wszelkie prawa zastrzeżone.

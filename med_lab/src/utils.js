@@ -35,7 +35,8 @@ export async function getPatientTests(pesel, setPatientTests){
     console.error('Wystąpił błąd:', error);
   };
 }
-export async function getTest(id_test, setTests){
+export async function getTest(id_test, setTest){
+  console.log("GetTest")
   try {
     const response = await fetch(`http://localhost:5000/test/${id_test}`, {
       method: 'GET'
@@ -43,8 +44,8 @@ export async function getTest(id_test, setTests){
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data)
-      setTests(data);
+      console.log(data.tests)
+      setTest(data.tests);
   } else {
       console.error('Wystąpił błąd przy pobieraniu danych.');
   }

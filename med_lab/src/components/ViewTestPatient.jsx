@@ -3,23 +3,30 @@
 import TestItem from "./PatientTests/TestItem";
 
 function ViewTestPatient(props) {
-      return (
-        <div className="App-page">
-            <header>
-                Laboratorium medyczne 
-            </header>
-            <div id='app-body'>
-            {props.testsList.map((test) => {
-            var keys = Object.keys(test.tests);
-            return <li key={test._id}><TestItem name={keys}/>
-            </li>;
-            })}
-            </div>
-            <footer>
-                © 2023 Aleksandra Ciura, Jakub Kulejewski. Wszelkie prawa zastrzeżone.
-            </footer>
-        </div>
-      );
-};
+  var keys = Object.keys(props.testList);
+  console.log(props.testList)
+  console.log(keys)
+  return (
+    <div className="App-page">
+      <header>Laboratorium medyczne</header>
+      <div id="app-body">
+        <ul>
+          {keys.map((testName) => {
+            console.log(testName)
+            console.log(props.testList[testName])
+            return (
+              <li key={testName}>
+                <TestItem testName={testName} testValue={props.testList[testName]}/>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      <footer>
+        © 2023 Aleksandra Ciura, Jakub Kulejewski. Wszelkie prawa zastrzeżone.
+      </footer>
+    </div>
+  );
+}
 
 export default ViewTestPatient;

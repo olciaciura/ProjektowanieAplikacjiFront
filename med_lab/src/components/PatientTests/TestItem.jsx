@@ -1,8 +1,8 @@
 function TestItem(props){
     return(
         <div>
-        <h4>{props.name}</h4>
-        {props.value}
+        <h4>{props.testName}</h4>
+        {props.testValue}
         </div>
     )
 }
