@@ -1,4 +1,4 @@
-export async function handleLogin (pesel, navigate) {  
+export async function handleLogin (pesel, navigate) {
     console.log('test')
     try {
       const response = await fetch(`http://localhost:5000/patient/${pesel}`, {
@@ -21,7 +21,7 @@ export async function handleLogin (pesel, navigate) {
     };
 };
 
-export async function addPatient (data, navigate) {  
+export async function addPatient (data, navigate) {
   console.log(typeof(data))
   try {
     const response = await fetch(`http://localhost:5000/patient`, {
@@ -35,6 +35,35 @@ export async function addPatient (data, navigate) {
         'adress': data['adress'],
         'birthDate': data['birthDate'],
         'information': data['information']
+      })
+    });
+    if (response.ok) {
+      console.log('wchodze')
+      // const data = await response.json();
+      console.log(response)
+      navigate("/doctor");
+    } else {
+      console.error('Wystąpił błąd przy pobieraniu danych.');
+      navigate("/doctor");
+      console.log('err')
+  }
+  } catch (error) {
+    console.error('Wystąpił błąd:', error);
+    navigate("/doctor");
+  };
+};
+
+export async function addTest (data, pesel, date, navigate) {
+  console.log(typeof(data))
+  try {
+    const response = await fetch(`http://localhost:5000/test`, {
+      method: 'POST',
+      headers: {
+        "Content-type": "application/json"},
+      body: JSON.stringify({
+        'pesel': pesel,
+        'date': date,
+        'tests': data
       })
     });
     if (response.ok) {

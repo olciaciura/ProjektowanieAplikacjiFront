@@ -48,47 +48,59 @@ function AddPatient() {
     return (
         <div className="App-page">
             <header>
-                Laboratorium medyczne 
+                Laboratorium medyczne
             </header>
             <div id='app-body'>
                 <form>
+                    <label for='pesel'>PESEL</label>
                     <input
                         type="text"
+                        id='pesel'
                         placeholder="PESEL"
                         value={data['pesel']}
                         onChange={(e) => setPesel(e.target.value)}
                     />
+                    <label for='name'>Imię:</label>
                     <input
                         type="text"
+                        id='name'
                         placeholder="Imie"
                         value={data['firstName']}
                         onChange={(e) => setName(e.target.value)}
                     />
+                    <label for='surname'>Nazwisko:</label>
                     <input
                         type="text"
+                        id='surname'
                         placeholder="nazwisko"
                         value={data['secondName']}
                         onChange={(e) => setSurname(e.target.value)}
                     />
+                    <label for='adress'>Adres:</label>
                     <input
                         type="text"
-                        placeholder="adres"
+                        id='adress'
+                        placeholder="ulica nr lokalu, kod pocztowy i miejscowość"
                         value={data['address']}
                         onChange={(e) => setAddress(e.target.value)}
                     />
+                    <label for='birth-date'>Data urodzenia:</label>
                     <input
                         type="text"
-                        placeholder="data urodzenia"
+                        id='birth-date'
+                        placeholder="dd-mm-rrrr"
                         value={data['birthDate']}
                         onChange={(e) => setBirthDate(e.target.value)}
                     />
+                    <label for='uwagi'>Uwagi, alergie, przyjmowane leki:</label>
                     <input
                         type="text"
+                        id='uwagi'
                         placeholder="uwagi"
                         value={data['information']}
                         onChange={(e) => setInformation(e.target.value)}
-                    />    
-                    <button onClick={handleSubmitClick}>Dodaj pacjenta</button>            
+                    />
+                    <button onClick={handleSubmitClick}>Dodaj pacjenta</button>
                 </form>
             </div>
             <footer>
