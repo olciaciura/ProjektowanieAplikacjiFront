@@ -61,9 +61,14 @@ export async function addTest (data, pesel, date, navigate) {
       headers: {
         "Content-type": "application/json"},
       body: JSON.stringify({
-        'pesel': pesel,
-        'date': date,
-        'tests': data
+        "pesel": pesel,
+        "date": date,
+        "tests": [
+          JSON.stringify({"Hematokryt": data['Hematokryt']}), 
+          JSON.stringify({"krwinki-czerwone": data['krwinki-czerwone']}), 
+          JSON.stringify({"hemoglobina": data["hemoglobina"]}), 
+          JSON.stringify({"krwinki-biale": data["krwinki-biale"]})
+        ] 
       })
     });
     if (response.ok) {
