@@ -57,6 +57,26 @@ export async function getAllPateintsTests (pesel, navigate) {
   };
 };
 
+export async function getTest (testID, navigate) {
+  console.log('test')
+  try {
+    const response = await fetch(`http://localhost:5000/test/${testID}`, {
+      method: 'GET'
+    });
+
+    if (response.ok) {
+      const test = await response.json();
+      console.log(test)
+      await navigate(`/view_test_doctor?test=${JSON.stringify(test)}`);
+  } else {
+      console.error('Wystąpił błąd przy pobieraniu danych.');
+  }
+  } catch (error) {
+    console.error('Wystąpił błąd:', error);
+  };
+};
+
+
 export async function addPatient (data, navigate) {
   console.log(typeof(data))
   try {
@@ -96,11 +116,11 @@ export async function addTest (data, pesel, date, navigate) {
         "pesel": pesel,
         "date": date,
         "tests": [
-          JSON.stringify({"Hematokryt": data['Hematokryt']}), 
-          JSON.stringify({"krwinki-czerwone": data['krwinki-czerwone']}), 
-          JSON.stringify({"hemoglobina": data["hemoglobina"]}), 
+          JSON.stringify({"Hematokryt": data['Hematokryt']}),
+          JSON.stringify({"krwinki-czerwone": data['krwinki-czerwone']}),
+          JSON.stringify({"hemoglobina": data["hemoglobina"]}),
           JSON.stringify({"krwinki-biale": data["krwinki-biale"]})
-        ] 
+        ]
       })
     });
     if (response.ok) {
