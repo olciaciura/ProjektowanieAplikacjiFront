@@ -2,28 +2,29 @@
 
 import { React, useState } from "react";
 import './css/main.css';
-import { handleLogin, handleLoginDoc } from "../utils";
+import { handleLogin, getAllPatients } from "../utils";
 import { useNavigate } from "react-router-dom";
 
 function Main() {
     const navigate = useNavigate();
     const [pesel, setPesel] = useState('');
-    
+
     const handleLoginClick =  (e) => {
         e.preventDefault();
          handleLogin(pesel, navigate);
       };
 
-    // const handleLoginDocClick = () => {
-    //     handleLoginDoc(navigate);
-    // }
+    const handleLoginDocClick = (e) => {
+        e.preventDefault();
+        getAllPatients(navigate);
+    }
     return(
         <div>
         <header>
-            Laboratorium medyczne 
+            Laboratorium medyczne
         </header>
         <div className="main_component">
-            <div className="login" id="patient"> 
+            <div className="login" id="patient">
                 Zaloguj sie jako pacjent
                 <form>
                     <input
@@ -38,7 +39,7 @@ function Main() {
             <div className="login" id="doctor">
                 Zaloguj sie jako doctor
                 <form>
-                    {/* <button onClick={handleLoginDocClick}>Zaloguj</button> */}
+                    <button onClick={handleLoginDocClick}>Zaloguj</button>
                 </form>
             </div>
         </div>

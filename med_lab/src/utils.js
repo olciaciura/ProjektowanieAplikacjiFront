@@ -12,13 +12,49 @@ export async function handleLogin (pesel, navigate) {
         navigate("/patient");
     } else {
         console.error('Wystąpił błąd przy pobieraniu danych.');
-        navigate('patient');
         console.log('err')
     }
     } catch (error) {
       console.error('Wystąpił błąd:', error);
-      navigate('patient');
     };
+};
+
+export async function getAllPatients (navigate) {
+  console.log('test')
+  try {
+    const response = await fetch(`http://localhost:5000/all_patients`, {
+      method: 'GET'
+    });
+
+    if (response.ok) {
+      const patients = await response.json();
+      console.log(patients)
+      await navigate(`/doctor?patients=${JSON.stringify(patients)}`);
+  } else {
+      console.error('Wystąpił błąd przy pobieraniu danych.');
+  }
+  } catch (error) {
+    console.error('Wystąpił błąd:', error);
+  };
+};
+
+export async function getAllPateintsTests (pesel, navigate) {
+  console.log('test')
+  try {
+    const response = await fetch(`http://localhost:5000/patient_test/${pesel}`, {
+      method: 'GET'
+    });
+
+    if (response.ok) {
+      const tests = await response.json();
+      console.log(tests)
+      await navigate(`/all_tests?tests=${JSON.stringify(tests)}`);
+  } else {
+      console.error('Wystąpił błąd przy pobieraniu danych.');
+  }
+  } catch (error) {
+    console.error('Wystąpił błąd:', error);
+  };
 };
 
 export async function addPatient (data, navigate) {
@@ -39,17 +75,13 @@ export async function addPatient (data, navigate) {
     });
     if (response.ok) {
       console.log('wchodze')
-      // const data = await response.json();
       console.log(response)
       navigate("/doctor");
     } else {
       console.error('Wystąpił błąd przy pobieraniu danych.');
-      navigate("/doctor");
-      console.log('err')
   }
   } catch (error) {
     console.error('Wystąpił błąd:', error);
-    navigate("/doctor");
   };
 };
 
@@ -68,16 +100,12 @@ export async function addTest (data, pesel, date, navigate) {
     });
     if (response.ok) {
       console.log('wchodze')
-      // const data = await response.json();
       console.log(response)
       navigate("/doctor");
     } else {
       console.error('Wystąpił błąd przy pobieraniu danych.');
-      navigate("/doctor");
-      console.log('err')
   }
   } catch (error) {
     console.error('Wystąpił błąd:', error);
-    navigate("/doctor");
   };
 };
