@@ -7,13 +7,15 @@ function AddTest(props) {
 
     const navigate = useNavigate();
     const [date, setDate] = useState()  //wziac z kalendarza
-    const [data, setData] = useState({'Hematokryt': '', 'krwinki czerwone': '', 'hemoglobina': '', 'krwinki białe': ''});
+    const [data, setData] = useState({"Hematokryt": "", "krwinki-czerwone": "", "hemoglobina": "", "krwinki-biale": ""});
 
     const searchParams = new URLSearchParams(props.location.search);
     const pesel = searchParams.get('pesel');
     console.log(pesel);
-    const handleParamChange = (e, key) => {
-        setData(current => {current[key] = e.target.value; return [...current]})
+    const handleParamChange = (value, key) => {
+        setData(current => ({
+            ...current, [key]: value
+        }))
     };
 
     const handleSubmitClick =  (e) => {
@@ -44,7 +46,7 @@ function AddTest(props) {
                                 id={key}
                                 placeholder={key}
                                 value={data[key]}
-                                onChange={(e) => handleParamChange(e, key)}
+                                onChange={(e) => handleParamChange(e.target.value, key)}
                             />
                         </div>
                     </div>
