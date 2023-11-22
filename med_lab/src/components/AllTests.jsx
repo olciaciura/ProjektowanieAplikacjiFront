@@ -1,7 +1,7 @@
 // strona wyswietlajaca wszystkie testy w liscie dla danego pacjenta z konta doktora
 
 import { useNavigate } from "react-router-dom";
-import { addTest, getTest } from "../utils";
+import { getTestDoctor } from "../utils";
 
 function AllTests(props) {
 
@@ -16,7 +16,7 @@ function AllTests(props) {
 
     const handleTsetClick = (e, testId)  => {
         e.preventDefault();
-        getTest(testId, navigate)
+        getTestDoctor(testId, navigate)
     }
 
     const handleAddClick = (e) => {

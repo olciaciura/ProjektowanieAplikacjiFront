@@ -55,7 +55,7 @@ export async function getAllPateintsTests (pesel, navigate) {
   };
 };
 
-export async function getTest (testID, navigate) {
+export async function getTestDoctor (testID, navigate) {
   console.log('test')
   try {
     const response = await fetch(`http://localhost:5000/test/${testID}`, {

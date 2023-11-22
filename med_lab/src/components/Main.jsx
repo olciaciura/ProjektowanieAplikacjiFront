@@ -5,13 +5,13 @@ import './css/main.css';
 import { handleLogin, getAllPatients } from "../utils";
 import { useNavigate } from "react-router-dom";
 
-function Main() {
+function Main(props) {
     const navigate = useNavigate();
     const [pesel, setPesel] = useState('');
 
     const handleLoginClick =  (e) => {
         e.preventDefault();
-         handleLogin(pesel, navigate);
+         handleLogin(pesel, props.setPatientData, navigate);
       };
 
     const handleLoginDocClick = (e) => {
