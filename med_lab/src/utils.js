@@ -39,7 +39,6 @@ export async function getAllPatients (navigate) {
 };
 
 export async function getAllPateintsTests (pesel, navigate) {
-  console.log('test')
   try {
     const response = await fetch(`http://localhost:5000/patient_test/${pesel}`, {
       method: 'GET'
@@ -48,7 +47,7 @@ export async function getAllPateintsTests (pesel, navigate) {
     if (response.ok) {
       const tests = await response.json();
       console.log(tests)
-      await navigate(`/all_tests?tests=${JSON.stringify(tests)}`);
+      await navigate(`/all_tests?pesel=${pesel}&tests=${JSON.stringify(tests)}`);
   } else {
       console.error('Wystąpił błąd przy pobieraniu danych.');
   }
@@ -96,7 +95,7 @@ export async function addPatient (data, navigate) {
     if (response.ok) {
       console.log('wchodze')
       console.log(response)
-      navigate("/doctor");
+      getAllPatients(navigate)
     } else {
       console.error('Wystąpił błąd przy pobieraniu danych.');
   }
@@ -125,8 +124,7 @@ export async function addTest (data, pesel, date, navigate) {
     });
     if (response.ok) {
       console.log('wchodze')
-      console.log(response)
-      navigate("/doctor");
+      getAllPateintsTests(pesel, navigate)
     } else {
       console.error('Wystąpił błąd przy pobieraniu danych.');
   }

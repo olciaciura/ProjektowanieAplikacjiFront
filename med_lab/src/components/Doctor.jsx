@@ -15,6 +15,10 @@ function Doctor(props) {
         console.log('czekam na testy')
         getAllPateintsTests(pesel, navigate)
     }
+    const handleAddClick = (e) => {
+        e.preventDefault()
+        navigate(`/add_patient`)
+    }
 
       return (
         <div className="App-page">
@@ -26,11 +30,11 @@ function Doctor(props) {
             {patients_list.map((patient, i) => (
                 <div>
                 <button key={patient.pesel} onClick={(e) => handlePatientClick(e, patient.pesel)}>
-                    {patient.firstName} {patient.secondName}
+                    {patient.firstName} {patient.secondName}, {patient.pesel}
                 </button>
                 </div>
             ))}
-
+            <button onClick={(e)=>handleAddClick(e)}>ADD PATIENT</button>
             </div>
             <footer>
                 © 2023 Aleksandra Ciura, Jakub Kulejewski. Wszelkie prawa zastrzeżone.

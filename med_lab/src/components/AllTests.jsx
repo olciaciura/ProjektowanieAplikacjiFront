@@ -1,18 +1,27 @@
 // strona wyswietlajaca wszystkie testy w liscie dla danego pacjenta z konta doktora
 
 import { useNavigate } from "react-router-dom";
-import { getTest } from "../utils";
+import { addTest, getTest } from "../utils";
 
 function AllTests(props) {
 
     const searchParams = new URLSearchParams(props.location.search);
     const tests = searchParams.get('tests');
+    const pesel = searchParams.get('pesel');
+
+    console.log(pesel, tests)
+
     const tests_list = JSON.parse(tests)
     const navigate = useNavigate()
 
     const handleTsetClick = (e, testId)  => {
         e.preventDefault();
         getTest(testId, navigate)
+    }
+
+    const handleAddClick = (e) => {
+        e.preventDefault();
+        navigate(`/add_test?pesel=${pesel}`);
     }
 
       return (
@@ -29,6 +38,7 @@ function AllTests(props) {
                 </div>
             ))}
             </div>
+            <button onClick={(e) => handleAddClick(e)}> ADD TEST</button>
             <footer>
                 © 2023 Aleksandra Ciura, Jakub Kulejewski. Wszelkie prawa zastrzeżone.
             </footer>
