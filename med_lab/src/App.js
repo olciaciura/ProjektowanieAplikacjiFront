@@ -23,9 +23,10 @@ function App() {
       <Route path='/' element={<Main setPatientData={setPatientData}/>}/>
       <Route path='/patient' element ={<Patient setTest={setTest} patientData={patientData}/>}/>
       <Route path='/add_patient' element ={<AddPatient/>}/>
-      <Route path='/all_tests' element ={<AllTests/>}/>
-      <Route path='/doctor' element ={<Doctor/>}/>
-      <Route path='/view_test_doctor' element ={<ViewTestDoctor/>}/>
+      <Route path='/all_tests' element ={<AllTests location={window.location}/>}/>
+      <Route path='/add_test' element={<AddTest location={window.location}/>}/>
+      <Route path='/doctor' element ={<Doctor location={window.location}/>}/>
+      <Route path='/view_test_doctor' element ={<ViewTestDoctor location={window.location}/>}/>
       <Route path='/view_test_patient' element ={<ViewTestPatient testList={test}/>}/>
     </Routes>
   </BrowserRouter>
