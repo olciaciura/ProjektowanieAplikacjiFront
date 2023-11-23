@@ -1,8 +1,7 @@
 function TestItem(props){
     return(
-        <div>
-        <h4>{props.testName}</h4>
-        {props.testValue}
+        <div className="TestItem">
+        <p>{Object.keys(JSON.parse(props.testValue))}: {Object.values(JSON.parse(props.testValue))}</p>
         </div>
     )
 }

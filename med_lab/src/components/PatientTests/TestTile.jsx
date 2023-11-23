@@ -9,9 +9,8 @@ function TestTile(props) {
         navigate("/view_test_patient")
         getTest(props.test_id, props.setTest);
       }}
-      style={{ background: "#74992e" }}
     >
-      <h3>Badanie {props.firstTestName}</h3>
+      <h3>Badanie {props.test_id.slice(-5)}</h3>
       <div>Data: {props.date}</div>
     </div>
   );

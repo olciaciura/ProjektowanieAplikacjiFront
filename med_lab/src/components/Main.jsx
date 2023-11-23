@@ -19,13 +19,13 @@ function Main(props) {
         getAllPatients(navigate);
     }
     return(
-        <div>
+        <div class='app'>
         <header>
             Laboratorium medyczne
         </header>
-        <div className="main_component">
+        <div className="main_component" id='main_page'>
             <div className="login" id="patient">
-                Zaloguj sie jako pacjent
+                <p>Zaloguj sie jako pacjent</p>
                 <form>
                     <input
                         type="text"
@@ -37,7 +37,7 @@ function Main(props) {
                 </form>
             </div>
             <div className="login" id="doctor">
-                Zaloguj sie jako doctor
+                <p>Zaloguj sie jako doktor</p>
                 <form>
                     <button onClick={handleLoginDocClick}>Zaloguj</button>
                 </form>

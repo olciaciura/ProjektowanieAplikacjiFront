@@ -25,16 +25,14 @@ function Doctor(props) {
             <header>
                 Laboratorium medyczne
             </header>
-            <div id='app-body'>
+            <div className='main_component' id='patientList'>
 
-            {patients_list.map((patient, i) => (
-                <div>
-                <button key={patient.pesel} onClick={(e) => handlePatientClick(e, patient.pesel)}>
-                    {patient.firstName} {patient.secondName}, {patient.pesel}
-                </button>
-                </div>
-            ))}
-            <button onClick={(e)=>handleAddClick(e)}>ADD PATIENT</button>
+                {patients_list.map((patient, i) => (
+                    <button className='patient' key={patient.pesel} onClick={(e) => handlePatientClick(e, patient.pesel)}>
+                        <p>{patient.firstName} {patient.secondName}, {patient.pesel}</p>
+                    </button>
+                ))}
+                <button onClick={(e)=>handleAddClick(e)}>DODAJ PACJENTA</button>
             </div>
             <footer>
                 © 2023 Aleksandra Ciura, Jakub Kulejewski. Wszelkie prawa zastrzeżone.

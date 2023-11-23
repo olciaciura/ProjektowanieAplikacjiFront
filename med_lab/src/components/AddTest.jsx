@@ -28,7 +28,8 @@ function AddTest(props) {
             <header>
                 Laboratorium medyczne
             </header>
-            <div id='app-body'>
+            <div className='main_component' id="add_test">
+            <div className='FormInput'>
             <label for='date'>Data badania:</label>
             <input
                 type="date"
@@ -37,19 +38,20 @@ function AddTest(props) {
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
             />
+            </div>
+
             {Object.keys(data).map((key, index) => (
-                    <div key={index} className='FormNewParameter'>
-                        <div className='FormInput'>
-                            <label for={key}>{key}</label>
-                            <input
-                                type="text"
-                                id={key}
-                                placeholder={key}
-                                value={data[key]}
-                                onChange={(e) => handleParamChange(e.target.value, key)}
-                            />
-                        </div>
-                    </div>
+                <div className='FormInput' >
+                    <label for={key}>{key}</label>
+                    <input
+                        type="text"
+                        id={key}
+                        placeholder={key}
+                        value={data[key]}
+                        onChange={(e) => handleParamChange(e.target.value, key)}
+                    />
+                </div>
+
                 ))}
                     <button onClick={handleSubmitClick}>Dodaj test</button>
 

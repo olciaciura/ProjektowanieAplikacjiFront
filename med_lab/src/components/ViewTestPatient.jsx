@@ -9,18 +9,12 @@ function ViewTestPatient(props) {
   return (
     <div className="App-page">
       <header>Laboratorium medyczne</header>
-      <div id="app-body">
-        <ul>
+      <div className="main_component" id="column">
           {keys.map((testName) => {
-            console.log(testName)
-            console.log(props.testList[testName])
             return (
-              <li key={testName}>
                 <TestItem testName={testName} testValue={props.testList[testName]}/>
-              </li>
             );
           })}
-        </ul>
       </div>
       <footer>
         © 2023 Aleksandra Ciura, Jakub Kulejewski. Wszelkie prawa zastrzeżone.

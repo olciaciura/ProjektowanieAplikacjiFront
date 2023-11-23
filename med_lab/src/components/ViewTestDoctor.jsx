@@ -1,10 +1,7 @@
 // widok wynikow badania jako doctor - rozroznienie jest dla latwiejzej obslugi cofania sie do poprzedniej strony
 
-import { useNavigate } from "react-router-dom";
-
 function ViewTestDoctor(props) {
 
-    const navigate = useNavigate()
     const searchParams = new URLSearchParams(props.location.search);
     const test = searchParams.get('test');
     const test_dict = JSON.parse(test)['tests']
@@ -15,11 +12,13 @@ function ViewTestDoctor(props) {
             <header>
                 Laboratorium medyczne
             </header>
-            <div id='app-body'>
+            <div className='main_component' id='column'>
             {test_dict.map((param, i) => (
+                <div className="TestItem">
                 <p key={i}>
                     {Object.keys(JSON.parse(param))}: {Object.values(JSON.parse(param))}
                 </p>
+                </div>
             ))}
             </div>
             <footer>

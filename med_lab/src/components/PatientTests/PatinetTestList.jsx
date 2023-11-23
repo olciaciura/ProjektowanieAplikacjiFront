@@ -1,20 +1,13 @@
 import TestTile from "./TestTile";
-import { useEffect } from "react";
-
-
 
 function PatientTestList(props) {
 
-
   return (
-    <div >
-      <h3>Lista Badań</h3>
-      <ul>
+    <div className="PatientTestList">
         {props.testList.map((test) => {
           var keys = Object.keys(test.tests);
-          return <li key={test._id}><TestTile test_id={test._id} setTest={props.setTest} firstTestName={keys[0]} date={test.date} /></li>;
+          return <button className="TestTile" key={test._id}><TestTile test_id={test._id} setTest={props.setTest} firstTestName={keys[0]} date={test.date} /></button>;
         })}
-      </ul>
     </div>
   );
 }

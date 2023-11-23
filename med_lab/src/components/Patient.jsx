@@ -7,46 +7,19 @@ import { getPatientTests } from "../utils";
 
 function Patient(props){
   const [patientTests, setPatientTests] = useState([]);
-  console.log(props.patientData.pesel)
+  console.log(props.patientData.firstName)
   useEffect(() =>{getPatientTests(props.patientData.pesel,setPatientTests)},[])
-  //getPatientTests(props.patientData.pesel,setPatientTests)
-    const DUMMY_DATA = [
-      {
-        _id: '1',
-        firstTestName: 'Hemoglobina',
-        date: '5.12.2013',
-        tests: {
-            "Hemoglobina": "55",
-            "Testosteron": "10"
-        }
-      },
-      {
-        _id: '2',
-        firstTestName: 'Holesterol',
-        date: '8.12.2013',
-        tests: {
-            "BiałeKrwiniik": "55",
-            "Testosteron": "10"
-        }
-      },
-      {
-        _id: '3',
-        firstTestName: 'BiałeKrwiniik',
-        date: '10.12.2023',
-        tests: {
-          "BiałeKrwinki": "55",
-          "Testosteron": "10"
-      }
-      },
-    ]
+
     return (
       <div>
         <header>
-            Laboratorium medyczne 
+            Laboratorium medyczne
         </header>
-        <h2>Strona pacjenta</h2>
+        <div className='main_component' id="column">
+        <h2>Witaj, {props.patientData.firstName}</h2>
+        <h3>Lista Badań</h3>
         <PatientTestList testList={patientTests} setTest={props.setTest}/>
-        <div>Odpowiedź z zapytania: {props.patientData.firstName}</div>
+        </div>
         <footer>
                 © 2023 Aleksandra Ciura, Jakub Kulejewski. Wszelkie prawa zastrzeżone.
         </footer>

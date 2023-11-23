@@ -29,16 +29,16 @@ function AllTests(props) {
             <header>
                 Laboratorium medyczne
             </header>
-            <div id='app-body'>
+            <div className='main_component' id='patientList'>
             {tests_list.map((test, i) => (
-                <div>
-                <button key={test._id} onClick={(e) => handleTsetClick(e, test._id)}>
-                    {test.date}
+                <button className='patient' key={test._id} onClick={(e) => handleTsetClick(e, test._id)}>
+                    <h3>Badanie {test._id.slice(-5)}</h3>
+                    <div>Data: {test.date}</div>
                 </button>
-                </div>
             ))}
+
+            <button onClick={(e) => handleAddClick(e)}> DODAJ BADANIE</button>
             </div>
-            <button onClick={(e) => handleAddClick(e)}> ADD TEST</button>
             <footer>
                 © 2023 Aleksandra Ciura, Jakub Kulejewski. Wszelkie prawa zastrzeżone.
             </footer>

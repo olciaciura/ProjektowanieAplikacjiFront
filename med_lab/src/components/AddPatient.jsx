@@ -50,8 +50,9 @@ function AddPatient() {
             <header>
                 Laboratorium medyczne
             </header>
-            <div id='app-body'>
-                <form>
+
+            <div className='main_component' id="column">
+                <div className='FormInput' >
                     <label for='pesel'>PESEL</label>
                     <input
                         type="text"
@@ -60,6 +61,8 @@ function AddPatient() {
                         value={data['pesel']}
                         onChange={(e) => setPesel(e.target.value)}
                     />
+                </div>
+                <div className='FormInput' >
                     <label for='name'>Imię:</label>
                     <input
                         type="text"
@@ -68,6 +71,8 @@ function AddPatient() {
                         value={data['firstName']}
                         onChange={(e) => setName(e.target.value)}
                     />
+                </div>
+                <div className='FormInput' >
                     <label for='surname'>Nazwisko:</label>
                     <input
                         type="text"
@@ -76,6 +81,8 @@ function AddPatient() {
                         value={data['secondName']}
                         onChange={(e) => setSurname(e.target.value)}
                     />
+                </div>
+                <div className='FormInput' >
                     <label for='adress'>Adres:</label>
                     <input
                         type="text"
@@ -84,6 +91,8 @@ function AddPatient() {
                         value={data['address']}
                         onChange={(e) => setAddress(e.target.value)}
                     />
+                </div>
+                <div className='FormInput' >
                     <label for='birth-date'>Data urodzenia:</label>
                     <input
                         type="text"
@@ -92,6 +101,8 @@ function AddPatient() {
                         value={data['birthDate']}
                         onChange={(e) => setBirthDate(e.target.value)}
                     />
+                </div>
+                <div className='FormInput' >
                     <label for='uwagi'>Uwagi, alergie, przyjmowane leki:</label>
                     <input
                         type="text"
@@ -100,8 +111,8 @@ function AddPatient() {
                         value={data['information']}
                         onChange={(e) => setInformation(e.target.value)}
                     />
-                    <button onClick={handleSubmitClick}>Dodaj pacjenta</button>
-                </form>
+                </div>
+                <button onClick={handleSubmitClick}>Dodaj pacjenta</button>
             </div>
             <footer>
                 © 2023 Aleksandra Ciura, Jakub Kulejewski. Wszelkie prawa zastrzeżone.
